@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "fed64719-c7c0-4102-8a11-1ed6d98bdec6",
+		"name": "Brighte Eats API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28074252"
+	},
+	"item": [
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "Add Lead",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe5\",\r\n    \"email\": \"john5@example.com\",\r\n    \"mobile\": \"1235567899\",\r\n    \"postcode\": \"12345\",\r\n    \"services\": [\"PAYMENT\"]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/leads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe 1\",\r\n    \"email\": \"john1@example.com\",\r\n    \"mobile\": \"1234567890\",\r\n    \"postcode\": \"12345\",\r\n    \"services\": [\"Service1\"]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/leads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by UUID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe 1\",\r\n    \"email\": \"john1@example.com\",\r\n    \"mobile\": \"1234567890\",\r\n    \"postcode\": \"12345\",\r\n    \"services\": [\"Service1\"]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/leads/1d5b6d05-aa97-4f8f-9f9c-843c11ac1f39",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"leads",
+								"1d5b6d05-aa97-4f8f-9f9c-843c11ac1f39"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"query\": \"mutation Register($name: String!, $email: String!, $mobile: String!, $postcode: String!, $services: [ServiceType!]!) { register(name: $name, email: $email, mobile: $mobile, postcode: $postcode, services: $services) { uuid name email mobile postcode services } }\",\r\n  \"variables\": {\r\n    \"name\": \"John Doe 3\",\r\n    \"email\": \"john3@example.com\",\r\n    \"mobile\": \"1234567811\",\r\n    \"postcode\": \"12345\",\r\n    \"services\": [\"DELIVERY\", \"PICKUP\"]\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "hello",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sample Add",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"mutation Register($name: String!, $email: String!, $mobile: String!, $postcode: String!, $services: [ServiceType!]!) { register(name: $name, email: $email, mobile: $mobile, postcode: $postcode, services: $services) { uuid name email mobile postcode services } }\",\r\n  \"variables\": {\r\n    \"name\": \"John Doe 3\",\r\n    \"email\": \"john3@example.com\",\r\n    \"mobile\": \"1234567811\",\r\n    \"postcode\": \"12345\",\r\n    \"services\": [\"DELIVERY\", \"PICKUP\"]\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "hello",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "202"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ca-ZEOSoKfIbZim3xtMWFeu+9nkTpM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jul 2024 11:51:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"register\": {\n            \"id\": \"15\",\n            \"uuid\": \"1150972f-e51d-4ba2-9fa3-eea71de08106\",\n            \"name\": \"John Doe 3\",\n            \"email\": \"john3@example.com\",\n            \"mobile\": \"1234567811\",\n            \"postcode\": \"12345\",\n            \"services\": [\n                \"DELIVERY\",\n                \"PICKUP\"\n            ]\n        }\n    }\n}"
+				},
+				{
+					"name": "Sample Get All",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"{ leads { uuid name email mobile postcode services } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "hello",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "551"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"227-Gsv2DnPvwR7k+WK+IF/+Mc4PgUM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jul 2024 11:57:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"leads\": [\n            {\n                \"id\": \"1\",\n                \"uuid\": \"47f59121-17e1-4298-90e6-541b855a8286\",\n                \"name\": \"John Doe 1\",\n                \"email\": \"john1@example.com\",\n                \"mobile\": \"1234567890\",\n                \"postcode\": \"12345\",\n                \"services\": [\n                    \"DELIVERY\"\n                ]\n            },\n            {\n                \"id\": \"11\",\n                \"uuid\": \"00f2b596-b94b-4c70-924a-c028e295a94c\",\n                \"name\": \"John Doe 2\",\n                \"email\": \"john2@example.com\",\n                \"mobile\": \"1234567891\",\n                \"postcode\": \"12345\",\n                \"services\": [\n                    \"DELIVERY\",\n                    \"PICKUP\"\n                ]\n            },\n            {\n                \"id\": \"15\",\n                \"uuid\": \"1150972f-e51d-4ba2-9fa3-eea71de08106\",\n                \"name\": \"John Doe 3\",\n                \"email\": \"john3@example.com\",\n                \"mobile\": \"1234567811\",\n                \"postcode\": \"12345\",\n                \"services\": [\n                    \"DELIVERY\",\n                    \"PICKUP\"\n                ]\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Sample Get by UUID",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"query Lead($uuid: UUID!) { lead(uuid: $uuid) { uuid name email mobile postcode services } }\",\r\n  \"variables\": {\r\n    \"uuid\": \"47f59121-17e1-4298-90e6-541b855a8286\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "hello",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "184"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b8-2Om658ZzlOe/h7sKvFZNyUOS5B0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jul 2024 12:19:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"lead\": {\n            \"id\": \"1\",\n            \"uuid\": \"47f59121-17e1-4298-90e6-541b855a8286\",\n            \"name\": \"John Doe 1\",\n            \"email\": \"john1@example.com\",\n            \"mobile\": 1234567890,\n            \"postcode\": 12345,\n            \"services\": [\n                \"DELIVERY\"\n            ]\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}
