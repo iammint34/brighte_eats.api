@@ -11,3 +11,6 @@ coverage/*
 
 .eslintrc.js
 **/*.js
+
+# tests folder
+**/tests/*

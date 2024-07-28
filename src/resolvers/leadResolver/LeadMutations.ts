@@ -30,7 +30,7 @@ export default class LeadMutations {
         services: services.join(','),
       } as LeadSqlType)) as ResultSetHeader;
 
-      if (result.insertId) throw new Error('Failed to insert lead');
+      if (!result.insertId) throw new Error('Failed to insert lead');
 
       return {
         uuid,
