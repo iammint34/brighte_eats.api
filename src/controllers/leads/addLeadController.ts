@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { graphql } from 'graphql';
 import { createdResponse } from '../../libraries/ApiResponses';
 import createSchema from '../../createSchema';
+import GraphQLError from '../../libraries/exceptions/GraphQLError';
 
 const addLeadController = async (req: Request, res: Response, next: NextFunction) => {
   const schema = await createSchema();
@@ -26,7 +27,9 @@ const addLeadController = async (req: Request, res: Response, next: NextFunction
       variableValues: variables,
     });
 
-    createdResponse(res, result);   
+    if (result?.errors) throw new GraphQLError(`Failed to add lead.`, result.errors);
+
+    createdResponse(res, result?.data);
   } catch (error) {
     next(error);
   }
